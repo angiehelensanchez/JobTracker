@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Company;
+
 
 class CompanyController extends Controller
 {
@@ -12,54 +15,54 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+/*     public function create()
     {
         //
-    }
+    } */
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+/*     public function store(Request $request)
     {
         //
-    }
+    } */
 
     /**
      * Display the specified resource.
      */
-    public function show(Company $company)
+/*     public function show(Company $company)
     {
         //
-    }
+    } */
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Company $company)
+/*     public function edit(Company $company)
     {
         //
-    }
+    } */
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Company $company)
+/*     public function update(Request $request, Company $company)
     {
         //
-    }
+    } */
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Company $company)
+/*     public function destroy(Company $company)
     {
         //
-    }
+    } */
 }

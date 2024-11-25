@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\JobPortal;
 use Illuminate\Http\Request;
 
@@ -12,54 +13,54 @@ class JobPortalController extends Controller
      */
     public function index()
     {
-        //
+        $jobportal = JobPortal::all();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+/*     public function create()
     {
         //
-    }
+    } */
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+/*     public function store(Request $request)
     {
         //
-    }
+    } */
 
     /**
      * Display the specified resource.
      */
-    public function show(JobPortal $jobPortal)
+/*     public function show(JobPortal $jobPortal)
     {
         //
-    }
+    } */
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(JobPortal $jobPortal)
+/*     public function edit(JobPortal $jobPortal)
     {
         //
-    }
+    } */
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JobPortal $jobPortal)
+/*     public function update(Request $request, JobPortal $jobPortal)
     {
         //
-    }
+    } */
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JobPortal $jobPortal)
+/*     public function destroy(JobPortal $jobPortal)
     {
         //
-    }
+    } */
 }
