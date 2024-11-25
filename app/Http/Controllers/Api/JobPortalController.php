@@ -14,7 +14,7 @@ class JobPortalController extends Controller
     public function index()
     {
         $jobPortals = JobPortal::all();
-        return response()->json($jobPortals);
+        return response()->json($jobPortals, 200);
     }
 
     /**
