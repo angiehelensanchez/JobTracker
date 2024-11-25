@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\TechStack;
 
@@ -13,7 +14,8 @@ class TechStackController extends Controller
      */
     public function index()
     {
-        //
+        $techStack = TechStack::all();
+        return response()->json($techStack,200);
     }
 
     /**
@@ -29,15 +31,18 @@ class TechStackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $techStack = TechStack::create($request->all());
+        $techStack->save(); 
+        return response()->json($techStack,200);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(TechStack $techStack)
+    public function show(string $techStackId)
     {
-        //
+        $techStack = TechStack::find($techStackId);
+        return response()->json($techStack,200);
     }
 
     /**
@@ -51,16 +56,21 @@ class TechStackController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TechStack $techStack)
+    public function update(Request $request, string $techStackId)
     {
-        //
+        $techStack=TechStack::find( $techStackId );
+
+        $techStack->update($request->all());
+        $techStack->save();
+        return response()->json($techStack,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TechStack $techStack)
+    public function destroy(string $techStackId)
     {
-        //
+        $techStack = Company::find($techStackId);
+        $techStack->delete();
     }
 }
