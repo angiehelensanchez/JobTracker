@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\JobPortalController;
+use App\Http\Controllers\Api\OfferController;
 use App\Http\Controllers\Api\StateController;
 use App\Http\Controllers\Api\TechStackController;
 use Illuminate\Http\Request;
@@ -34,3 +35,9 @@ Route::get('/states/{id}', [StateController::class, 'show'])->name('apiShow');
 Route::delete('/states/{id}',[StateController::class, 'destroy'])->name('apiDestroy');
 Route::post('/states',[StateController::class, 'store'])->name('apiStoreJobPortals');
 Route::put('/states/{id}',[StateController::class, 'update'])->name('apiUpdate');
+
+Route::get('/offers', [OfferController::class,'index'])->name('apiHome');
+Route::get('/offers/{id}', [OfferController::class, 'show'])->name('apiShow');
+Route::delete('/offers/{id}',[OfferController::class, 'destroy'])->name('apiDestroy');
+Route::post('/offers',[OfferController::class, 'store'])->name('apiStoreJobPortals');
+Route::put('/offers/{id}',[OfferController::class, 'update'])->name('apiUpdate');

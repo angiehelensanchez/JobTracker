@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('company_id');
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade');
             $table->string('offer_name');
             $table->enum('attendance', ['On-site','Hybrid',"Remote"]);
-            $table->string('salaryRange');
+            $table->string('salary_range');
             $table->string('description');
-            $table->unsignedInteger('jobportal_id');
+            $table->unsignedBigInteger('jobportal_id');
+            $table->foreign('jobportal_id')->references('id')->on('job_portals')->onUpdate('cascade');
             $table->timestamps();
         });
     }

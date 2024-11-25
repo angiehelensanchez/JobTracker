@@ -21,7 +21,7 @@ class Offer extends Model
         'company_id',
         'offer_name',
         'attendance',
-        'salaryRange',
+        'salary_range',
         'description',
         'jobportal_id',
     ];
