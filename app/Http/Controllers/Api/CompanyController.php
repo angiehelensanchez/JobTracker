@@ -13,7 +13,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::all();
+        return response()->json($companies, 200);
     }
 
     /**
@@ -29,15 +30,21 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = Company::create([
+            "nameCompany"=> $request->nameCompany,
+            "country"=> $request->country
+        ]);
+        $company->save();
+        return response()->json($company,200);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Company $company)
+    public function show(string $company_id)
     {
-        //
+        $company = Company::find($company_id);
+        return response()->json($company,200);
     }
 
     /**
@@ -51,16 +58,25 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, string $company_id)
     {
-        //
+        $company = Company::find($company_id);
+
+        $company->update([
+            "name"=> $request->name,
+            "country"=> $request->country
+        ]);
+
+        $company->save();
+        return response()->json($company,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Company $company)
+    public function destroy(string $company_id)
     {
-        //
+        $company = Company::find($company_id);
+        $company->delete();
     }
 }
