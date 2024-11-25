@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('offer_id');
+            $table->unsignedBigInteger('offer_id');
+            $table->foreign('offer_id')->references('id')->on('offers');
             $table->string('status');
             $table->string('commentary');
             $table->timestamps();
