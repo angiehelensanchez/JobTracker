@@ -13,7 +13,8 @@ class JobPortalController extends Controller
      */
     public function index()
     {
-        //
+        $jobPortals = JobPortal::all();
+        return response()->json($jobPortals);
     }
 
     /**
@@ -29,15 +30,19 @@ class JobPortalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jobPortal = JobPortal::create($request->all());
+        $jobPortal->save();
+        return response()->json($jobPortal, 200);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(JobPortal $jobPortal)
+    public function show(string $jobPortalId)
     {
-        //
+        $jobPortal = JobPortal::find($jobPortalId);
+        return response()->json($jobPortal,200);
+
     }
 
     /**
@@ -51,16 +56,20 @@ class JobPortalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, JobPortal $jobPortal)
+    public function update(Request $request, string $jobPortalId)
     {
-        //
+        $jobPortal= JobPortal::find($jobPortalId);
+        $jobPortal->update($request->all());
+        $jobPortal->save();
+        return response()->json($jobPortal,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(JobPortal $jobPortal)
+    public function destroy(string $jobPortalId)
     {
-        //
+        $jobPortal = JobPortal::find($jobPortalId);
+        $jobPortal->delete();
     }
 }
