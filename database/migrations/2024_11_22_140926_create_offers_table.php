@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('salaryRange');
             $table->string('description');
             $table->unsignedInteger('jobportal_id');
-            $table->unsignedInteger('state_id');
             $table->timestamps();
         });
     }

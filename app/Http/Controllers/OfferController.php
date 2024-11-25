@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        $offers=Offer::all();
+        return view("home",compact("offers"));
     }
 
     /**
@@ -34,9 +36,10 @@ class OfferController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Offer $offer)
+    public function show(string $offer_id)
     {
-        //
+        $offer =Offer::find($offer_id);
+        return view("show",compact("offer"));
     }
 
     /**

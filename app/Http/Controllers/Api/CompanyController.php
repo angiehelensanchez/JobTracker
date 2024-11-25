@@ -41,9 +41,9 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $company_id)
+    public function show(string $companyId)
     {
-        $company = Company::find($company_id);
+        $company = Company::find($companyId);
         return response()->json($company,200);
     }
 
@@ -58,9 +58,9 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $company_id)
+    public function update(Request $request, string $companyId)
     {
-        $company = Company::find($company_id);
+        $company = Company::find($companyId);
 
         $company->update([
             "name"=> $request->name,
@@ -74,9 +74,9 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $company_id)
+    public function destroy(string $companyId)
     {
-        $company = Company::find($company_id);
+        $company = Company::find($companyId);
         $company->delete();
     }
 }
