@@ -13,7 +13,8 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
+        $states = State::all();
+        return response()->json($states,200);
     }
 
     /**
@@ -29,15 +30,19 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $state = State::create($request->all());
+        $state->save();
+        return response()->json($state, 200);
+    
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(State $state)
+    public function show(string $stateId)
     {
-        //
+        $state = State::find($stateId);
+        return response()->json($state,200);
     }
 
     /**
@@ -51,16 +56,19 @@ class StateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, State $state)
+    public function update(Request $request, string $stateId)
     {
-        //
+        $state = State::find($stateId);
+        $state->update($request->all());
+        return response()->json($state,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(State $state)
+    public function destroy(string $stateId)
     {
-        //
+        $state = State::find($stateId);
+        $state->delete();
     }
 }

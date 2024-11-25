@@ -15,9 +15,7 @@ class Offer extends Model
     public function jobportal(){
         return $this->belongsTo(JobPortal::class);
     }
-    public function state(){
-        return $this->hasMany(State::class);
-    }
+  
     
     protected $fillable = [
         'company_id',
@@ -26,6 +24,5 @@ class Offer extends Model
         'salaryRange',
         'description',
         'jobportal_id',
-        'state_id',
     ];
 }
