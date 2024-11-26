@@ -1,3 +1,10 @@
-<div>
-    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
-</div>
+@extends('layout.app')
+@section('content')
+    @foreach ($companies as $company)
+        <div class="card" id = "emotionsCard" style="width: 18rem;">
+            <img  id = "emotionsImage" src="..." class="card-img-top" alt="{{$company->id}}">
+            <p class="card-text"> {{$company->id}}... </p>
+            
+        </div>
+    @endforeach
+@endsection
