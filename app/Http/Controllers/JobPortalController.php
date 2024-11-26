@@ -13,7 +13,7 @@ class JobPortalController extends Controller
      */
     public function index()
     {
-        $jobportal = JobPortal::all();
+        return JobPortal::all();
     }
 
     /**

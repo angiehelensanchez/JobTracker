@@ -19,7 +19,7 @@ class AllController extends Controller
         $jobportals = app(JobPortalController::class)->index();
         $techStacks = app(TechStackController::class)->index();
         
-        return view('home', compact('companies'));
+        return view('home', compact('companies', 'offers', 'jobportals'));
 
     }
 }

@@ -13,8 +13,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers=Offer::all();
-        return view("home",compact("offers"));
+        return Offer::all();
     }
 
     /**
