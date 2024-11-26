@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\TechOffer;
+use App\Models\OfferTechStack;
 
-class TechOfferController extends Controller
+class OfferTechStackController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $techOffers = TechOffer::all();
+        $techOffers = OfferTechStack::all();
         return response()->json($techOffers, 200);
     }
 
@@ -30,7 +30,7 @@ class TechOfferController extends Controller
      */
     public function store(Request $request)
     {
-        $techOffer = TechOffer::create($request->all());
+        $techOffer = OfferTechStack::create($request->all());
         $techOffer->save();
         return response()->json($techOffer,200);
     }
@@ -40,14 +40,14 @@ class TechOfferController extends Controller
      */
     public function show(string $techOfferId)
     {
-        $techOffer = TechOffer::find($techOfferId);
+        $techOffer = OfferTechStack::find($techOfferId);
         return response()->json($techOffer,200);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(TechOffer $techOffer)
+    public function edit(OfferTechStack $techOffer)
     {
         //
     }
@@ -57,7 +57,7 @@ class TechOfferController extends Controller
      */
     public function update(Request $request, string $techOfferId)
     {
-        $techOffer = TechOffer::find($techOfferId);
+        $techOffer = OfferTechStack::find($techOfferId);
 
         $techOffer->update($request->all());
         $techOffer->save();
@@ -69,7 +69,7 @@ class TechOfferController extends Controller
      */
     public function destroy(string $techOfferId)
     {
-        $techOffer = TechOffer::find($techOfferId);
+        $techOffer = OfferTechStack::find($techOfferId);
         $techOffer->delete();
     }
 }

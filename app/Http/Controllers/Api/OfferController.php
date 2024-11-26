@@ -71,4 +71,16 @@ class OfferController extends Controller
         $offer = Offer::find($offerId);
         $offer->delete();
     }
+
+    public function attachTechStack(Request $request, string $offerId)  
+    {
+        $offer = Offer::find($offerId);
+
+        foreach ($request['stack_id'] as $tech)
+        {
+            $offer->techStacks()->attach($tech);
+        }
+        return response()->json(status:200);
+
+    }
 }

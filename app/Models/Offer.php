@@ -10,7 +10,7 @@ class Offer extends Model
         return $this->belongsTo(Company::class);
     }
     public function techStacks(){
-        return $this->belongsToMany(TechStack::class);
+        return $this->belongsToMany(TechStack::class, 'offer_tech_stacks');
     }
     public function jobportal(){
         return $this->belongsTo(JobPortal::class);

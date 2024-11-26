@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TechOffer extends Model
+class OfferTechStack extends Model
 {
     protected $fillable = [
         'offer_id',
