@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class State extends Model
+class Advance extends Model
 {
     public function offer(){
         return $this->belongsTo(Offer::class);
@@ -12,6 +12,7 @@ class State extends Model
     protected $fillable = [
         'offer_id',
         'status',
+        'phase',
         'commentary',
         
     ];

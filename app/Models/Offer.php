@@ -12,9 +12,6 @@ class Offer extends Model
     public function techStacks(){
         return $this->belongsToMany(TechStack::class, 'offer_tech_stacks');
     }
-    public function jobportal(){
-        return $this->belongsTo(JobPortal::class);
-    }
   
     
     protected $fillable = [
@@ -23,6 +20,7 @@ class Offer extends Model
         'attendance',
         'salary_range',
         'description',
-        'jobportal_id',
+        'url',
+        'state'
     ];
 }

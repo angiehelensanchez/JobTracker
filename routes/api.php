@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Api\JobPortalController;
 use App\Http\Controllers\Api\OfferController;
-use App\Http\Controllers\Api\StateController;
+use App\Http\Controllers\Api\AdvanceController;
 use App\Http\Controllers\Api\TechStackController;
 use App\Http\Controllers\Api\OfferTechStackController;
 use Illuminate\Http\Request;
@@ -19,23 +19,17 @@ Route::post('/companies',[CompanyController::class, 'store'])->name('apiStore');
 Route::put('/companies/{id}',[CompanyController::class, 'update'])->name('apiUpdate');
 
 
-Route::get('/job-portals', [JobPortalController::class,'index'])->name('apiHome');
-Route::get('/job-portals/{id}', [JobPortalController::class, 'show'])->name('apiShow');
-Route::delete('/job-portals/{id}',[JobPortalController::class, 'destroy'])->name('apiDestroy');
-Route::post('/job-portals',[JobPortalController::class, 'store'])->name('apiStoreJobPortals');
-Route::put('/job-portals/{id}',[JobPortalController::class, 'update'])->name('apiUpdate');
-
 Route::get('/tech-stacks', [TechStackController::class,'index'])->name('apiHome');
 Route::get('/tech-stacks/{id}', [TechStackController::class, 'show'])->name('apiShow');
 Route::delete('/tech-stacks/{id}',[TechStackController::class, 'destroy'])->name('apiDestroy');
 Route::post('/tech-stacks',[TechStackController::class, 'store'])->name('apiStoreJobPortals');
 Route::put('/tech-stacks/{id}',[TechStackController::class, 'update'])->name('apiUpdate');
 
-Route::get('/states', [StateController::class,'index'])->name('apiHome');
-Route::get('/states/{id}', [StateController::class, 'show'])->name('apiShow');
-Route::delete('/states/{id}',[StateController::class, 'destroy'])->name('apiDestroy');
-Route::post('/states',[StateController::class, 'store'])->name('apiStoreJobPortals');
-Route::put('/states/{id}',[StateController::class, 'update'])->name('apiUpdate');
+Route::get('/advances', [AdvanceController::class,'index'])->name('apiHome');
+Route::get('/advances/{id}', [AdvanceController::class, 'show'])->name('apiShow');
+Route::delete('/advances/{id}',[AdvanceController::class, 'destroy'])->name('apiDestroy');
+Route::post('/advances',[AdvanceController::class, 'store'])->name('apiStoreJobPortals');
+Route::put('/advances/{id}',[AdvanceController::class, 'update'])->name('apiUpdate');
 
 Route::get('/offers', [OfferController::class,'index'])->name('apiHome');
 Route::get('/offers/{id}', [OfferController::class, 'show'])->name('apiShow');

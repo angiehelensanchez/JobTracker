@@ -19,8 +19,8 @@ return new class extends Migration
             $table->enum('attendance', ['On-site','Hybrid',"Remote"]);
             $table->string('salary_range');
             $table->string('description');
-            $table->unsignedBigInteger('jobportal_id');
-            $table->foreign('jobportal_id')->references('id')->on('job_portals')->onUpdate('cascade');
+            $table->string('url');
+            $table->enum('state', ['In-progress','Finished',"Paused"]);
             $table->timestamps();
         });
     }
