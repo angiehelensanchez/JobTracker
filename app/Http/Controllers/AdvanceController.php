@@ -13,8 +13,7 @@ class AdvanceController extends Controller
      */
     public function index()
     {
-        $advances = Advance::all();
-        
+        return Advance::all();
     }
 
     /**

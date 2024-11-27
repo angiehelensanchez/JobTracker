@@ -10,12 +10,21 @@
         <div class="card" id = "emotionsCard" style="width: 18rem;">
             <p class="card-text"> {{$offer->offer_name}} </p>
             <p class="card-text"> {{$offer->attendance}} </p>
+            <ul>
+            
+        @foreach ($advances as $advance)
+            
+            @if ($advance->offer_id == $offer->id)
+                <li>
+                    {{$advance->commentary}}
+                </li>
+
+            @endif
+
+        @endforeach
+            </ul>
         </div>
     @endforeach
-    @foreach ($jobportals as $job)
-        <div class="card" id = "emotionsCard" style="width: 18rem;">
-            <p class="card-text"> {{$job->namePortal}} </p>
-            <p class="card-text"> {{$job->url}} </p>
-        </div>
-    @endforeach
+    
+
 @endsection

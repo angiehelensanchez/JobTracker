@@ -13,7 +13,7 @@ class TechStackController extends Controller
      */
     public function index()
     {
-        $techStack = TechStack::all();
+        return TechStack::all();
     }
 
     /**
