@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\State;
+use App\Models\Advance;
 use Illuminate\Http\Request;
 
-class StateController extends Controller
+class AdvanceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $states = State::all();
+        $advances = Advance::all();
         
     }
 
@@ -36,7 +36,7 @@ class StateController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(State $state)
+    public function show(Advance $advance)
     {
         //
     }
@@ -44,7 +44,7 @@ class StateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(State $state)
+    public function edit(Advance $advance)
     {
         //
     }
@@ -52,7 +52,7 @@ class StateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, State $state)
+    public function update(Request $request, Advance $advance)
     {
         //
     }
@@ -60,7 +60,7 @@ class StateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(State $state)
+    public function destroy(Advance $advance)
     {
         //
     }

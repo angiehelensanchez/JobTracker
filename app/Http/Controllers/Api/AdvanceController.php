@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\State;
+use App\Models\Advance;
 
-class StateController extends Controller
+class AdvanceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $states = State::all();
-        return response()->json($states,200);
+        $advances = Advance::all();
+        return response()->json($advances,200);
     }
 
     /**
@@ -30,25 +30,25 @@ class StateController extends Controller
      */
     public function store(Request $request)
     {
-        $state = State::create($request->all());
-        $state->save();
-        return response()->json($state, 200);
+        $advance = Advance::create($request->all());
+        $advance->save();
+        return response()->json($advance, 200);
     
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $stateId)
+    public function show(string $advanceId)
     {
-        $state = State::find($stateId);
-        return response()->json($state,200);
+        $advance = Advance::find($advanceId);
+        return response()->json($advance,200);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(State $state)
+    public function edit(Advance $advance)
     {
         //
     }
@@ -56,19 +56,19 @@ class StateController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $stateId)
+    public function update(Request $request, string $advanceId)
     {
-        $state = State::find($stateId);
-        $state->update($request->all());
-        return response()->json($state,200);
+        $advance = Advance::find($advanceId);
+        $advance->update($request->all());
+        return response()->json($advance,200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $stateId)
+    public function destroy(string $advanceId)
     {
-        $state = State::find($stateId);
-        $state->delete();
+        $advance = Advance::find($advanceId);
+        $advance->delete();
     }
 }
