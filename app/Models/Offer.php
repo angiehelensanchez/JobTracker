@@ -6,16 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    public function company(){
-        return $this->belongsTo(Company::class);
-    }
     public function techStacks(){
         return $this->belongsToMany(TechStack::class, 'offer_tech_stacks');
     }
-  
-    
+    public function advances(){
+        return $this->hasMany(Advance::class, "offer_id");
+    }
     protected $fillable = [
-        'company_id',
+        'company_name',
         'offer_name',
         'attendance',
         'salary_range',
@@ -23,4 +21,5 @@ class Offer extends Model
         'url',
         'state'
     ];
+
 }

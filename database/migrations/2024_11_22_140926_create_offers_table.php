@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('company_id');
-            $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade');
+            $table->string('company_name');
             $table->string('offer_name');
             $table->enum('attendance', ['On-site','Hybrid',"Remote"]);
             $table->string('salary_range');

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
 use App\Models\JobPortal;
 use App\Models\Offer;
 use App\Models\TechStack;
@@ -17,16 +16,6 @@ class JobsTableSeeder extends Seeder
      */
     public function run(): void
     {
-
-        $company = new Company();
-        $company->nameCompany = "Inetum";
-        $company->country = "Spain";
-        $company->save();
-
-        $company = new Company();
-        $company->nameCompany = "Ineco";
-        $company->country = "Spain";
-        $company->save();
 
 
         $techStack = new TechStack();
@@ -45,7 +34,7 @@ class JobsTableSeeder extends Seeder
         $techStack->save();
 
         $offer = new Offer();
-        $offer->company_id = 1;
+        $offer->company_name = "Inetum";
         $offer->offer_name = "Desarrollador Junior";
         $offer->attendance = "Hybrid";
         $offer->salary_range = "21K";
@@ -57,7 +46,7 @@ class JobsTableSeeder extends Seeder
         $offer->techStacks()->attach([3,1]);
 
         $offer = new Offer();
-        $offer->company_id = 2;
+        $offer->company_name = "Santander";
         $offer->offer_name = "Desarrollador Junior Python";
         $offer->attendance = "Remote";
         $offer->salary_range = "20K-22K";
@@ -67,6 +56,20 @@ class JobsTableSeeder extends Seeder
         $offer->save();
 
         $offer->techStacks()->attach([2,1]);
+
+        $offer = new Offer();
+        $offer->company_name = "Inetum";
+        $offer->offer_name = "Desarrollador Java";
+        $offer->attendance = "Hybrid";
+        $offer->salary_range = "20K";
+        $offer->description = "+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.";
+        $offer->url = "https://www.linkedin.com/jobs/";
+        $offer->state = "In-progress";
+        $offer->save();
+
+        $offer->techStacks()->attach([3,1]);
+
+
 
         $advance = new Advance();
         $advance->offer_id= 1;

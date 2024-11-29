@@ -1,0 +1,11 @@
+.cardsDashboard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+h2{
+    text-align: center;
+}
+

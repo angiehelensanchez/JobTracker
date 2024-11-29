@@ -13,7 +13,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        return Offer::all();
+        return Offer::with('advances')->get();
     }
 
     /**
