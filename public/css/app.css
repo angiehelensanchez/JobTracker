@@ -2,10 +2,60 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 2vh;
+    padding: 3vh;
 }
 
+main{
+    background-color: #F6F6F2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
 
 h2{
     text-align: center;
 }
 
+.custom-navbar {
+    background-color: #C4EEF2;
+
+}
+
+h2{
+    padding: 1vh;
+}
+
+.accordion{
+    padding: 3vh;
+}
+
+footer{
+    background-color: #C4EEF2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5vh;
+    padding: 3vh;
+}
+
+.cardProgress{
+    display: flex;
+    justify-content: center;
+    padding: 0.5vh;
+}
+
+.accordionSkills{
+    background-color: transparent; 
+    color: inherit;
+    border: none; 
+}
+
+footer img{
+    width: 6vh;
+}
+.container-fluid img{
+    width: 15vh;
+    padding: 2vh;
+}

@@ -13,11 +13,11 @@ class AllController extends Controller
 {
     
     public function index(){
-        $offers = app(OfferController::class)->index();
+        $offers = app(OfferController::class)->showLastAdvances();
         $techStacks = app(TechStackController::class)->index();
-        $advances = app(AdvanceController::class)->index();
-        
-        return view('home', compact('offers', 'advances', 'techStacks'));
+        $dateToday = localtime();
+
+        return view('home', compact('offers',  'techStacks', 'dateToday'));
 
     }
 }

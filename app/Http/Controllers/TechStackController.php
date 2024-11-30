@@ -13,7 +13,7 @@ class TechStackController extends Controller
      */
     public function index()
     {
-        return TechStack::all();
+        return TechStack::orderBy("knowledge", "desc")->get();
     }
 
     /**

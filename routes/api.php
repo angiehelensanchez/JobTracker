@@ -1,22 +1,13 @@
 <?php
 
-use App\Http\Controllers\Api\JobPortalController;
 use App\Http\Controllers\Api\OfferController;
 use App\Http\Controllers\Api\AdvanceController;
 use App\Http\Controllers\Api\TechStackController;
 use App\Http\Controllers\Api\OfferTechStackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CompanyController;
 
 
-
-
-Route::get('/companies', [CompanyController::class,'index'])->name('apiHome');
-Route::get('/companies/{id}', [CompanyController::class, 'show'])->name('apiShow');
-Route::delete('/companies/{id}',[CompanyController::class, 'destroy'])->name('apiDestroy');
-Route::post('/companies',[CompanyController::class, 'store'])->name('apiStore');
-Route::put('/companies/{id}',[CompanyController::class, 'update'])->name('apiUpdate');
 
 
 Route::get('/tech-stacks', [TechStackController::class,'index'])->name('apiHome');

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('offer_tech_stacks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('offer_id');
-            $table->foreign('offer_id')->references('id')->on('offers');
+            $table->foreign('offer_id')->references('id')->on('offers')->onDelete('cascade');
             $table->unsignedBigInteger('tech_stack_id');
-            $table->foreign('tech_stack_id')->references('id')->on('tech_stacks');
+            $table->foreign('tech_stack_id')->references('id')->on('tech_stacks')->onDelete('cascade');
         });
     }
 

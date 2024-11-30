@@ -15,6 +15,11 @@ class OfferController extends Controller
     {
         return Offer::with('advances')->get();
     }
+    
+    public function showLastAdvances()
+    {
+        return Offer::with(['advances' => function($query){$query->orderBy('updated_at','desc')->limit(1);}])->orderBy('updated_at','desc')->limit(12)->get();
+    }
 
     /**
      * Show the form for creating a new resource.
