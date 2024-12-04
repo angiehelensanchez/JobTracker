@@ -17,17 +17,6 @@ class OfferTechStackController extends Controller
         return response()->json($techOffers, 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $techOffer = OfferTechStack::create($request->all());
@@ -44,17 +33,7 @@ class OfferTechStackController extends Controller
         return response()->json($techOffer,200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(OfferTechStack $techOffer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+   
     public function update(Request $request, string $techOfferId)
     {
         $techOffer = OfferTechStack::find($techOfferId);
