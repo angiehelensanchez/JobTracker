@@ -13,33 +13,16 @@ class TechStackTest extends TestCase
 
     public function test_CheckIsReceiveAllEntryOfTechStackInJsonFile(): void
     {
-        TechStack::create([
-            'name' => 'Node.js',
-            'knowledge' => 'Intermediate',   
-        ]);
-
-        TechStack::create([
-            'name' => 'C++',
-            'knowledge' => 'Basic',  
-        ]);
-
+        $techStack = TechStack::factory(2)->create();
         $response = $this->get(route('apiTechStackHome'));
         $response->assertStatus(200)->assertJsonCount(2);
     }
 
     public function test_CheckIfCanDeleteEntryInTechStackWithApi(){
 
-        $techStack1 =TechStack::create([
-            'name' => 'Node.js',
-            'knowledge' => 'Intermediate',   
-        ]);
-
-        $techStack2 = TechStack::create([
-            'name' => 'C++',
-            'knowledge' => 'Basic', 
-        ]);
-
-        $response = $this->delete(route('apiTechStackDestroy', $techStack1->id));
+        $techStack = TechStack::factory(2)->create();
+        
+        $response = $this->delete(route('apiTechStackDestroy', 1));
         $this->assertDatabaseCount('tech_stacks',1);
         $response = $this->get(route('apiTechStackHome'));
         $response->assertStatus(200)->assertJsonCount(1);

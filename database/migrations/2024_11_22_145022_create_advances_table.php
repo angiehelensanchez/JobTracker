@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('offer_id');
             $table->foreign('offer_id')->references('id')->on('offers')->onDelete('cascade');
-            $table->enum('state', ['In-progress','Finished',"Paused"]);
+            $table->enum('state', ['In-progress','Finished','Paused']);
             $table->string('phase');
             $table->string('commentary');
             $table->timestamps();

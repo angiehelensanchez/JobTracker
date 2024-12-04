@@ -15,25 +15,7 @@ class OfferTest extends TestCase
 
     public function test_CheckIsReceiveAllEntryOfOfferInJsonFile(): void
     {
-        Offer::create([
-            'company_name' => 'Inetum',
-            'offer_name' => 'Desarrollador Junior',
-            'attendance' => 'Hybrid',
-            'salary_range' => '21K',
-            'description' => '+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.',
-            'url' => 'https://www.linkedin.com/jobs/',
-            'state' => 'In-progress',
-        ]);
-
-        Offer::create([
-            'company_name' => 'Santander',
-            'offer_name' => 'Desarrollador Junior Python',
-            'attendance' => 'Remote',
-            'salary_range' => '20K-22K',
-            'description' => '+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.',
-            'url' => 'https://www.linkedin.com/jobs/',
-            'state' => 'Paused',
-        ]);
+        $offer = Offer::factory(2)->create();
 
         $response = $this->get(route('apiOfferHome'));
         $response->assertStatus(200)->assertJsonCount(2);
@@ -41,27 +23,9 @@ class OfferTest extends TestCase
 
     public function test_CheckIfCanDeleteEntryInOfferWithApi(){
 
-        $offer1 =Offer::create([
-            'company_name' => 'Inetum',
-            'offer_name' => 'Desarrollador Junior',
-            'attendance' => 'Hybrid',
-            'salary_range' => '21K',
-            'description' => '+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.',
-            'url' => 'https://www.linkedin.com/jobs/',
-            'state' => 'In-progress',
-        ]);
+        $offer = Offer::factory(2)->create();
 
-        $offer2 = Offer::create([
-            'company_name' => 'Santander',
-            'offer_name' => 'Desarrollador Junior Python',
-            'attendance' => 'Remote',
-            'salary_range' => '20K-22K',
-            'description' => '+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.',
-            'url' => 'https://www.linkedin.com/jobs/',
-            'state' => 'Paused',
-        ]);
-
-        $response = $this->delete(route('apiOfferDestroy', $offer1->id));
+        $response = $this->delete(route('apiOfferDestroy', 1));
         $this->assertDatabaseCount('offers',1);
         $response = $this->get(route('apiOfferHome'));
         $response->assertStatus(200)->assertJsonCount(1);

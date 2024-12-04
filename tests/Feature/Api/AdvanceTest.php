@@ -14,40 +14,8 @@ class AdvanceTest extends TestCase
 
     public function test_CheckIsReceiveAllEntryOfAdvancesInJsonFile(): void
     {
-        $offer1 =Offer::create([
-            'company_name' => 'Inetum',
-            'offer_name' => 'Desarrollador Junior',
-            'attendance' => 'Hybrid',
-            'salary_range' => '21K',
-            'description' => '+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.',
-            'url' => 'https://www.linkedin.com/jobs/',
-            'state' => 'In-progress',
-        ]);
-
-        $offer2 = Offer::create([
-            'company_name' => 'Santander',
-            'offer_name' => 'Desarrollador Junior Python',
-            'attendance' => 'Remote',
-            'salary_range' => '20K-22K',
-            'description' => '+1 año de experiencia trabajando con tecnologías com Java O .Net O Angular O React Experiencia trabajando con metodología ágil.Apasionado de las nuevas tecnologías. Capacidad para trabajar en un entorno de trabajo ágil y en equipo.',
-            'url' => 'https://www.linkedin.com/jobs/',
-            'state' => 'Paused',
-        ]);
-        
-        
-        Advance::create([
-            'offer_id' => $offer1->id,
-            'state' => 'Paused', 
-            'phase'=> 'Entrevista técnica', 
-            'commentary' => 'Ha ido bien, quedamos en una semana para segunda entrevista',
-        ]);
-
-        Advance::create([
-            'offer_id' => $offer2->id,
-            'state' => 'In-progress', 
-            'phase'=> 'Entrevista RRHH', 
-            'commentary' => 'Hemos quedado la semana que viene. Tengo que preparar lo que quiero enseñar',
-        ]);
+        $offers =Offer::factory(2)->create();
+        $advances = Advance::factory(2)->create();
 
         $response = $this->get(route('apiAdvanceHome'));
         $response->assertStatus(200)->assertJsonCount(2);
@@ -55,66 +23,78 @@ class AdvanceTest extends TestCase
 
 
     public function test_CheckIfCanDeleteEntryInAdvanceWithApi(){
+        $offers =Offer::factory(2)->create();
+        $advances = Advance::factory(2)->create();
 
-        $advance1 =Advance::create([
-            'name' => 'Node.js',
-            'knowledge' => 'Intermediate',   
-        ]);
 
-        $advance2 = Advance::create([
-            'name' => 'C++',
-            'knowledge' => 'Basic', 
-        ]);
-
-        $response = $this->delete(route('apiAdvanceDestroy', $advance1->id));
-        $this->assertDatabaseCount('tech_stacks',1);
+        $response = $this->delete(route('apiAdvanceDestroy', 1));
+        $this->assertDatabaseCount('advances',1);
         $response = $this->get(route('apiAdvanceHome'));
         $response->assertStatus(200)->assertJsonCount(1);
     }
 
     public function test_CheckIfCanCreateNewEntryInAdvanceWithJsonFile(){
+        $offers =Offer::factory(2)->create();
+
         $response = $this->post(route('apiAdvanceStore'), [
-            'name' => 'Node.js',
-            'knowledge' => 'Intermediate',  
-            ]);
+            'offer_id' => 1,
+            'state' => 'Paused', 
+            'phase'=> 'Entrevista técnica', 
+            'commentary' => 'Ha ido bien, quedamos en una semana para segunda entrevista', 
+        ]);
         $response = $this-> get(route('apiAdvanceHome'));
         $response->assertStatus(200)->assertJsonCount(1);
     }
    public function test_CheckIfCanUpdateEntryInAdvanceWithJsonFile()
     {
+        $offers =Offer::factory(2)->create();
+
+
         $advance1 =Advance::create([
-            'name' => 'Node.js',
-            'knowledge' => 'Intermediate',   
+            'offer_id' => 1,
+            'state' => 'Paused', 
+            'phase'=> 'Entrevista técnica', 
+            'commentary' => 'Ha ido bien, quedamos en una semana para segunda entrevista',
         ]);
 
-        $data = ['knowledge' => 'Intermediate'];
+
+        $data = ['state' => 'Paused'];
         $response = $this->get(route('apiAdvanceHome'));
         $response->assertStatus(200)
                 ->assertJsonCount(1)
                 ->assertJsonFragment($data);
 
         $response = $this->put(route('apiAdvanceUpdate', $advance1->id),  [
-            'name' => 'Node.js',
-            'knowledge' => 'Advanced', 
+            'offer_id' => 1,
+            'state' => 'In-progress', 
+            'phase'=> 'Entrevista técnica', 
+            'commentary' => 'Ha ido bien, quedamos en una semana para segunda entrevista',
         ]);
 
-        $data = ['knowledge' => 'Advanced'];
+        $data = ['state' => 'In-progress'];
         $response = $this->get(route('apiAdvanceHome'));
         $response->assertStatus(200)
                 ->assertJsonFragment($data);
     } 
 
     public function test_ChechIfReceiveOneEntryOfAdvanceInJsonFile(){
+        $offers = Offer::factory(2)->create();
+
         $advance1 =Advance::create([
-            'name' => 'Node.js',
-            'knowledge' => 'Intermediate',   
-        ]);
-        $advance2 = Advance::create([
-            'name' => 'C++',
-            'knowledge' => 'Basic',        
+            'offer_id' => 1,
+            'state' => 'Paused', 
+            'phase'=> 'Entrevista técnica', 
+            'commentary' => 'Ha ido bien, quedamos en una semana para segunda entrevista',
         ]);
 
-        $data = ['knowledge' => 'Intermediate'];
+        $advance2 = Advance::create([
+            'offer_id' => 2,
+            'state' => 'In-progress', 
+            'phase'=> 'Entrevista RRHH', 
+            'commentary' => 'Hemos quedado la semana que viene. Tengo que preparar lo que quiero enseñar',
+        ]);
+
+        $data = ['state' => 'Paused'];
         $response = $this->get(route('apiAdvanceShow', $advance1->id));
         $response->assertStatus(200)
                 ->assertJsonFragment($data);
