@@ -16,11 +16,14 @@ class OfferController extends Controller
         return Offer::with('advances')->get();
     }
     
-    public function showLastAdvances()
+    public function showSomeOffersWithLastAdvance()
     {
         return Offer::with(['advances' => function($query){$query->orderBy('updated_at','desc')->limit(1);}])->orderBy('updated_at','desc')->limit(12)->get();
     }
 
+    public function showAllOffersWithLastAdvance(){
+        return Offer::with(['advances' => function($query){$query->orderBy('updated_at','desc')->limit(1);}])->orderBy('updated_at','desc')->get();
+    }
    
     public function show(string $offer_id)
     {

@@ -164,7 +164,7 @@ class JobsTableSeeder extends Seeder
         $offer->salary_range = "30K";
         $offer->description = "Experiencia en Node.js y bases de datos SQL. Capacidad para diseñar e implementar APIs robustas y seguras. Experiencia trabajando en equipo con metodologías ágiles.";
         $offer->url = "https://www.infojobs.net/";
-        $offer->state = "In-progress";
+        $offer->state = "Paused";
         $offer->save();
 
         $offer->techStacks()->attach([7,4]);
