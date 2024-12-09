@@ -17,10 +17,4 @@ class TechStackController extends Controller
     }
 
    
-    public function show(TechStack $techStack)
-    {
-        //
-    }
-
-   
 }

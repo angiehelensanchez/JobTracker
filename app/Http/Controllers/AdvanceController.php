@@ -16,10 +16,5 @@ class AdvanceController extends Controller
         return Advance::all();
     }
 
-    
-    public function show(Advance $advance)
-    {
-        //
-    }
 
 }
