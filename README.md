@@ -1,14 +1,35 @@
 # JobTracker
 
-documentación usada:
-
-
 **Welcome to the JobTracker!**
-
-Foto general
+![Screenshot 2024-12-10 194521](https://github.com/user-attachments/assets/0fcf9805-30cb-49ba-a6e0-d360d1924d51)
 
 ## Description
+JobTracker is a web application that will allow you to have a personalised follow-up of the job offers you have applied for.
+Our application has 3 main views.
 
+## Home view
+The home view where you can see a list of the last 12 modified offers with some relevant data. In addition to a legend of all the technologies known to the user. 
+The purpose of the skills legend is to provide the user with the ids to link them to the offers, as well as to show the knowledge he/she thinks he/she has. 
+
+![Screenshot 2024-12-10 195729](https://github.com/user-attachments/assets/4ad31eca-bc1f-45a8-8f68-db55d635603b)
+
+Our offers will have two different types of views. The initial one, which we will see throughout much of the system: 
+
+![Screenshot 2024-12-10 200151](https://github.com/user-attachments/assets/4d67c086-921f-4805-bdc1-90638ab066cf)
+
+As we can see, we will have the name of the offer, the corresponding id, the date we have applied to the offer, the name of the company, the salary range, the link of the offer, a bar representing the status of the offer: green (In-Progress), yellow (Paused), red (Finished). And we will also be able to see the last modification date, which will be the date of the last modification of the offer or the modification of its most recent advanced. 
+
+## All Offers
+![Screenshot 2024-12-10 200719](https://github.com/user-attachments/assets/2d471f57-4223-46c9-a364-293921758517)
+
+In the next view, we will have the complete list of registered offers, including a filter that allows us to select the type of status (In progress, paused, finished) and by the name of the company. Both filters can be applied separately or at the same time.
+
+## Show Offers
+![Screenshot 2024-12-10 201154](https://github.com/user-attachments/assets/c7557c09-4a2b-401a-bee7-49a8195595e1)
+
+In the next view, we have 3 main sections. The offer with all its data, the technologies that have been associated with this particular offer and the developments that have taken place.
+
+The main part of the offer feels like a form, but that will be implemented in future updates. At the moment this page only allows us to have a complete and quick view to make some edits from the endpoints.
 
 >[!CAUTION]
 >Please read all the points of the README in order to make good use of the project. Thank you. 
@@ -62,7 +83,8 @@ In order to run this project locally, you need:
 ```
   php artisan migrate:fresh --seed
 ```
-Foto de las tablas en la bbdd
+
+![Screenshot 2024-12-10 201711](https://github.com/user-attachments/assets/31f2ae28-3313-4984-9e12-8a44e04302ee)
 
 6. Run NPM
 
@@ -89,23 +111,29 @@ In this quick guide you will learn about the main functionalities of my project 
 ```
   php artisan serve
 ```
-From postman you can read, create, edit or delete:
+To compensate for the fact that we have not yet developed the crud on the web, we have developed a collection of operations in Postman that you can import as follows:
+
+![Screenshot 2024-12-10 201759](https://github.com/user-attachments/assets/fdd906c1-876a-46a4-958a-5df3c8412b0e)
+
+From this collection you will have all the configurations done to be able to make the complete crud on the web tables. You also have a documentation that we have designed for each operation:
+
+![Screenshot 2024-12-10 202557](https://github.com/user-attachments/assets/5063306c-1ad8-4994-9bd3-ace9dcac0170)
+
 
 [JobTracker.postman_collection.json](https://github.com/user-attachments/files/18078147/JobTracker.postman_collection.json)
 
-Foto colección
 
 ##  Execution of the tests
 
 >[!IMPORTANT]
 >You can test our functions using ` php artisan test --coverage` in the terminal.
 
-Foto test
+![Screenshot 2024-12-10 173325](https://github.com/user-attachments/assets/d1b64695-b461-44ef-8d1d-c3bede4092e1)
+
 
 ##  Diagrams made (BBDD)
 
-Foto diagrama
-
+![Screenshot 2024-12-10 202759](https://github.com/user-attachments/assets/5652df47-eb36-43db-ae9c-188177551b5e)
 
 
 ## Project structure
@@ -118,8 +146,6 @@ The project follows the structure of the MVC design pattern, which allows for be
 
 - **Controller:** Handles communication between the model and the view, processing user requests and sending appropriate responses.
 
->[!NOTE]
->Our team is learning.  
 
 ### Tech
 
@@ -147,7 +173,8 @@ The tools used for this project are:
 - [@Angie](https://github.com/angiehelensanchez)
 
 ## Bibliography
+<a href='https://bluuweb.github.io/tutorial-laravel/db-relacional/#relacion-uno-a-muchos-inverso' target="_blank">Relación uno a muchos inverso</a>
+<a href='https://bluuweb.github.io/tutorial-laravel/db-relacional/#relacion-uno-a-muchos-inverso' target="_blank">Relaciones en Laravel</a>
+<a href='https://github.com/pvdlg/conventional-commit-types?authuser=0' target="_blank">Conventional Commits</a>
 
-https://bluuweb.github.io/tutorial-laravel/db-relacional/#relacion-uno-a-muchos-inverso
-https://desarrolloweb.com/articulos/relaciones-1-a-n-laravel-eloquent.html
-https://github.com/pvdlg/conventional-commit-types?authuser=0
+
