@@ -1,21 +1,26 @@
 @extends('layout.app')
 @section('content')
 
-<form method="GET" action="{{ route('allOffers') }}">
-    <div>
-        <label for="state">State:</label>
-        <select name="state" id="state">
-            <option value="">All</option>
-            <option value="In-progress" {{ request('state') == 'In-progress' ? 'selected' : '' }}>In-progress</option>
-            <option value="Paused" {{ request('state') == 'Paused' ? 'selected' : '' }}>Paused</option>
-            <option value="Finished" {{ request('state') == 'Finished' ? 'selected' : '' }}>Finished</option>
-        </select>
+<form method="GET" action="{{ route('allOffers') }}" class = "filterContainer">
+    <div class = "filterItems">
+        <div>
+            <label for="state">State:</label>
+            <select name="state" id="state">
+                <option value="">All</option>
+                <option value="In-progress" {{ request('state') == 'In-progress' ? 'selected' : '' }}>In-progress</option>
+                <option value="Paused" {{ request('state') == 'Paused' ? 'selected' : '' }}>Paused</option>
+                <option value="Finished" {{ request('state') == 'Finished' ? 'selected' : '' }}>Finished</option>
+            </select>
+        </div>
+        <div>
+            <label for="company_name">Company Name:</label>
+            <input type="text" name="company_name" id="company_name" value="{{ request('company_name') }}">
+        </div>
+        
+        <button type="submit" class="btn btn-outline-success">Filter</button>
+        <button class="btn btn-outline-danger"><a href="{{ route('allOffers') }}">Clear</a></button>
+        
     </div>
-    <div>
-        <label for="company_name">Company Name:</label>
-        <input type="text" name="company_name" id="company_name" value="{{ request('company_name') }}">
-    </div>
-    <button type="submit">Filter</button>
 </form>
 <div class ="cardsDashboard" >     
     @forelse ($offers as $offer)
