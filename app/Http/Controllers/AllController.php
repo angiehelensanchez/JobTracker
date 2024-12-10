@@ -39,4 +39,10 @@ class AllController extends Controller
 
         return view('allOfferList', compact('offers'));
     }
+
+    public function showOffer(string $id){
+        $offers = app(OfferController::class)->show($id);
+
+        return view('show', compact('offers'));
+    }
 }

@@ -7,3 +7,4 @@ use App\Http\Controllers\OfferController;
 
 Route::get('/', [AllController::class, 'index' ])->name('home');
 Route::get('/offers/', [AllController::class, 'indexOffer'])->name('allOffers');
+Route::get('/offers/{id}', [AllController::class, 'showOffer'])->name('showOffer');
