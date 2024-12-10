@@ -5,7 +5,7 @@
     <div class ="cardsDashboard" >     
         @forelse ($offers as $offer)
         <div class="card">
-            <div class="card-body" style="width: 26vh; line-height: 1.1;"">
+            <div class="card-body" style="width: 26vh; line-height: 1.1;">
                 <h5 class="card-title">{{$offer->offer_name}} </h5>
                 <p>🔑{{$offer->id}}</p>
                 <p class="card-text">Applied: {{$offer->created_at->format("d/m/Y")}}</p>

@@ -101,3 +101,57 @@ footer img{
 .cardItem label{
     padding: 0.5vh;
 }
+
+#showCard{
+    width: 80vh; 
+    line-height: 1.1;
+}
+.accordion{
+    min-width: 85vh;
+}
+.form-select{
+    width: 32vh;
+}
+@media (max-width: 480px) {
+
+    .filterItems{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 2vh;
+        width: 40vh;
+        gap: 2vh;
+    }
+    #showCard{
+        max-width: 40vh; 
+        line-height: 1.1;
+    }
+    .accordion{
+        max-width: 60vh;
+    }
+    .form-select{
+        width: 30vh;
+    }
+    .cardsDashboard{
+        width: 100%;
+    }
+
+}
+@media (max-width: 820px) {
+
+    .filterItems{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 2vh;
+        width: 40vh;
+        gap: 2vh;
+    }
+    #showCard{
+        width: 50vh; 
+        line-height: 1.1;
+    }
+    .accordion{
+        min-width: 50vh;
+    }
+}

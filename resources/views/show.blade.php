@@ -6,7 +6,7 @@
     <form class="card" action="{{route('allOffers')}}">
         @csrf
         @method('PUT')
-        <div class="card-body" style="width: 80vh; line-height: 1.1;">
+        <div class="card-body" id="showCard">
             <h5 class="card-title">
                 <label >Offer Name - 🔑{{ $offer->id }}</label>
             </h5>
@@ -20,7 +20,7 @@
             </div>
             <div class="cardItem">
                 <label>Attendance</label>
-                <select name="attendance"  class="form-select" style="width: 32vh;" disabled>
+                <select name="attendance"  class="form-select"  disabled>
                     <option value="Hybrid" {{ $offer->state == 'Hybrid' ? 'selected' : '' }}>Hybrid</option>
                     <option value="Remote" {{ $offer->state == 'Remote' ? 'selected' : '' }}>Remote</option>
                     <option value="On-site" {{ $offer->state == 'On-site' ? 'selected' : '' }}>On-site</option>
@@ -39,7 +39,7 @@
 
             <div class="cardItem">
                 <label>State</label>
-                <select name="state"  class="form-select" style="width: 32vh;" disabled>
+                <select name="state"  class="form-select" disabled>
                     <option value="In-progress" {{ $offer->state == 'In-progress' ? 'selected' : '' }}>In-progress</option>
                     <option value="Paused" {{ $offer->state == 'Paused' ? 'selected' : '' }}>Paused</option>
                     <option value="Finished" {{ $offer->state == 'Finished' ? 'selected' : '' }}>Finished</option>
@@ -62,7 +62,7 @@
         
         <div class="card-footer">
             <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Volver</button>
+                <button type="submit" class="btn btn-primary">Back</button>
             </div>
         </div>
     </form>
@@ -70,7 +70,7 @@
         <h5>No data available</h5>
     @endforelse
 
-    <div class="accordion" id="accordionPanelsStayOpenExample" style="width: 85vh;"">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
                 <button class="accordionSkills" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -104,7 +104,7 @@
                     @forelse ($offer->advances as $advance)
                         <div class="accordion-body">
                             <div class="card">
-                                <div class="card-body" style="width: 30vh; line-height: 1.1;">
+                                <div class="card-body">
                                     <p>{{ $advance->phase }} - 🔑{{ $advance->id}}</p>
                                     <div class="cardItem">
                                         <label>State</label>
