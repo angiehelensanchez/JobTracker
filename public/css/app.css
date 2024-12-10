@@ -1,3 +1,15 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
 .cardsDashboard{
     display: flex;
     flex-wrap: wrap;
@@ -7,11 +19,13 @@
 }
 
 main{
+    flex:1;
     background-color: #F6F6F2;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
+
 }
 
 h2{
@@ -58,4 +72,32 @@ footer img{
 .container-fluid img{
     width: 15vh;
     padding: 2vh;
+}
+
+.filterContainer{
+    display: flex;
+    justify-content: space-around;
+
+}
+.filterItems{
+    display: flex;
+    justify-content: space-around;
+    padding: 2vh;
+    width: 90vh;
+}
+
+.filterItems a{
+    text-decoration: none;
+    color: red;
+}
+
+.cardButtons{
+    display: flex;
+    justify-content: space-between;
+}
+.cardItem{
+    padding: 0.5vh;
+}
+.cardItem label{
+    padding: 0.5vh;
 }

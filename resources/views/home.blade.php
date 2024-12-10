@@ -11,7 +11,10 @@
                 <p class="card-text">Applied: {{$offer->created_at->format("d/m/Y")}}</p>
                 <p class="card-text">{{$offer->company_name}}</p>
                 <p class="card-text">{{$offer->salary_range}}</p>
-                <a href="{{$offer->url}}">Link</a>
+                <div class="cardButtons">   
+                    <a href="{{$offer->url}}">Link</a>
+                    <a href="{{route('showOffer', ['id' =>$offer->id])}}"><img src="{{asset('img/showButton.png')}}" alt=""></a>
+                </div>
 
             </div>
             <div class="cardProgress">

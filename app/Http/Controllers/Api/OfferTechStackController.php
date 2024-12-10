@@ -33,15 +33,6 @@ class OfferTechStackController extends Controller
         return response()->json($techOffer,200);
     }
 
-   
-    public function update(Request $request, string $techOfferId)
-    {
-        $techOffer = OfferTechStack::find($techOfferId);
-
-        $techOffer->update($request->all());
-        $techOffer->save();
-        return response()->json($techOffer,200);
-    }
 
     /**
      * Remove the specified resource from storage.

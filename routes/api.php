@@ -31,9 +31,10 @@ Route::post('/offers/{id}/tech-stacks',[OfferController::class, 'attachTechStack
 
 
 
-Route::get('/tech-offer', [OfferTechStackController::class,'index'])->name('apiHome');
-Route::get('/tech-offer/{id}', [OfferTechStackController::class, 'show'])->name('apiShow');
-Route::delete('/tech-offer/{id}',[OfferTechStackController::class, 'destroy'])->name('apiDestroy');
-Route::put('/tech-offer/{id}',[OfferTechStackController::class, 'update'])->name('apiUpdate');
+Route::get('/offer-techs', [OfferTechStackController::class,'index'])->name('apiHome');
+Route::get('/offer-techs/{id}', [OfferTechStackController::class, 'show'])->name('apiShow');
+Route::delete('/offer-techs/{id}',[OfferTechStackController::class, 'destroy'])->name('apiDestroy');
+Route::put('/offer-techs/{id}',[OfferTechStackController::class, 'update'])->name('apiUpdate');
+
 
 
