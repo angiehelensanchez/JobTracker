@@ -9,11 +9,6 @@ use Illuminate\Http\Request;
 class OfferController extends Controller
 {
 
-    public function index()
-    {
-        return Offer::with('advances')->get();
-    }
-    
     public function showSomeOffersWithLastAdvance()
     {
         return Offer::with(['advances' => function($query){$query->orderBy('updated_at','desc')->limit(1);}])->orderBy('updated_at','desc')->limit(12)->get();

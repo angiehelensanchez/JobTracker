@@ -22,9 +22,7 @@ class OfferController extends Controller
         return response()->json($offer,200);
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $offerId)
     {
         $offer = Offer::find($offerId);
