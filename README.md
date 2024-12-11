@@ -133,7 +133,8 @@ From this collection you will have all the configurations done to be able to mak
 
 ##  Diagrams made (BBDD)
 
-![Screenshot 2024-12-10 202759](https://github.com/user-attachments/assets/5652df47-eb36-43db-ae9c-188177551b5e)
+![Captura de pantalla 2024-12-11 081343](https://github.com/user-attachments/assets/8fb13afc-6f69-4d16-a1a1-b0eec761464b)
+
 
 
 ## Project structure
